@@ -35,7 +35,7 @@ func IsPorn(imgName string) (isPorn bool, skinRatio float64, err error) {
 	var skin int
 	for y := bounds.Min.Y; y < bounds.Max.Y; y++ {
 		for x := bounds.Min.X; x < bounds.Max.X; x++ {
-			r, g, b, a := m.At(x, y).RGBA()
+			r, g, b, _ := m.At(x, y).RGBA()
 			// Look for a particular red color and variations of blue and green could reperesnt a skin color
 			if r > 60 && float64(g) < (float64(r)*0.85) && float64(b) < (float64(r)*0.7) && float64(g) > (float64(r)*0.4) && float64(b) > (float64(r)*0.2) {
 				skin++
